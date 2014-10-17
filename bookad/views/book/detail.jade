@@ -1,0 +1,45 @@
+extends ../layout
+
+block script
+  script(src='/javascripts/book_delete.js')
+  script.
+    $(function() {
+      $('a.delete').on('deleted', function() {
+        $(location).attr('href', '/');
+      });
+    });
+
+block content
+  h1 #{book.name} の詳細
+
+  div#detail
+    div ISBN:
+      p= book.isbn 
+    div 書籍名:
+      p= book.name 
+    div 著者:
+      ul
+        for at in book.author
+          li= at
+    div タグ:
+      ul
+        for tag in book.tag
+          li= tag
+    div 値段:
+      p= book.price
+    div 購入日:
+      if book.purchaseDate
+        p= book.purchaseDate.toYMD('/')
+      else
+        p
+    div 読了日:
+      if book.finishDate
+        p= book.finishDate.toYMD('/')
+      else
+        p
+    div コメント:
+      pre= book.comment
+    div.horizontal_menu
+      a(href='..') 戻る
+      a.modify(href='#{book._id}/modify') 変更
+      a.delete(href='#{book._id}') 削除

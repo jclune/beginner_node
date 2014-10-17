@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h1= title
+  div: p #{user}さん こんにちは！
+  p You logged in!
+  form(type='post')
+    input(type='hidden' name='logout' value='logout')
+    input(type='submit' value='logout')

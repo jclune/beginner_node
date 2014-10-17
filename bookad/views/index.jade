@@ -1,0 +1,43 @@
+extends layout
+
+block script
+  script(src='/javascripts/book_delete.js')
+  script.
+    $(function() {
+      $('a.delete').on('deleted', function() {
+        $(this).parentsUntil('table', 'tr').remove();
+      });
+    });
+
+block content
+  h1: a(href='.')= title
+  div#contents
+    div#book_top.horizontal_menu
+      a(href='books/add') 書籍追加
+      a(href='books/search') 書籍検索
+    //- End div#book_top
+    if books.data != 0
+      table#book_list(border='1')
+        tr
+          for hd in books.header
+            th= hd
+        for data in books.data
+          tr
+            td= data.name
+            td
+              ul.tag
+                for tag in data.tag
+                  li= tag
+            if data.purchaseDate
+              td= data.purchaseDate.toYMD('/')
+            else
+              td
+            if data.finishDate
+              td= data.finishDate.toYMD('/')
+            else
+              td
+            td: a.detail(href='books/#{data._id}') 詳細
+            td: a.modify(href='books/#{data._id}/modify') 変更
+            td: a.delete(href='books/#{data._id}') 削除
+    //- End table#book_list
+  //- End div#contents

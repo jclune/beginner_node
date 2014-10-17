@@ -1,0 +1,20 @@
+{
+  "name": "unittest2",
+  "version": "0.0.1",
+  "description": "UnitTest example",
+  "dependencies": {
+    "express": "^4.4.5"
+  },
+  "devDependencies": {
+    "should": "*"
+  },
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha -R spec"
+  },
+  "author": "justin",
+  "license": "MIT"
+}

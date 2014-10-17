@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1= Search
+  p type something you want to translate
+  form(method='get')
+    input(type='text',name='word',value=placeholder)
+    input(type='submit')
+  p translation:
+  h2#translation #{translation}

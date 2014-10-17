@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+  form(action='add', method="post")
+    div ISBN:
+      input(type='text', name='book[isbn]') 
+    div 書籍名:
+      input(type='text', name='book[name]') 
+    div 著者:
+      input(type='text', name='book[author]')
+      span (カンマ(,)区切りで入力してください)
+    div タグ:
+      input(type='text', name='book[tag]')
+      span (カンマ(,)区切りで入力してください)
+    div 値段:
+      input(type='text', name='book[price]')
+    div 購入日:
+      input(type='text', name='book[purchaseDate]')
+    div 読了日:
+      input(type='text', name='book[finishDate]')
+    div コメント:
+      textarea(name='book[comment]', rows=3, cols=50)
+    div: input(type='submit', value='登録')

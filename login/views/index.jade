@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  div
+    if errors.length != 0
+      ul.error
+        for e in errors
+          li= e
+    form(action='/login', method='post')
+      div
+        for u in [ { disp: '管理者', val: 'admin'}, { disp: 'ゲスト', val: 'guest' } ]
+          label
+            if user.type == u.val
+              input(type='radio', name='user[type]', value=u.val, checked)
+            else
+              input(type='radio', name='user[type]', value=u.val)
+            span #{u.disp}
+      div
+        p: label NAME:
+          input(type='text', name='user[name]', value=user.name)
+        p: label PASS:
+          input(type='password', name='user[password]')
+        p: input(type='submit', value='ログイン')

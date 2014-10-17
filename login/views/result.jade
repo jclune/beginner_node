@@ -1,0 +1,7 @@
+extends layout
+
+block content
+  div
+    p #{user.name}さん こんにちは！
+    form(action='/logout', method='post')
+      input(type='submit', value='ログアウト')

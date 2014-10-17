@@ -1,0 +1,32 @@
+extends ../layout
+
+block content
+  form(action='.?_method=PUT', method="post")
+    input(type='hidden', name='book[_id]', value=book._id)
+    div ISBN:
+      input(type='text', name='book[isbn]', value=book.isbn) 
+    div 書籍名:
+      input(type='text', name='book[name]', value=book.name) 
+    div 著者:
+      - var author = book.author.join(', ')
+      input(type='text', name='book[author]', value=author)
+      span (カンマ(,)区切りで入力してください)
+    div タグ:
+      - var tag = book.tag.join(', ')
+      input(type='text', name='book[tag]', value=tag)
+      span (カンマ(,)区切りで入力してください)
+    div 値段:
+      input(type='text', name='book[price]', value=book.price)
+    div 購入日:
+      if book.purchaseDate
+        input(type='text', name='book[purchaseDate]', value=book.purchaseDate.toYMD('/'))
+      else
+        input(type='text', name='book[purchaseDate]')
+    div 読了日:
+      if book.finishDate
+        input(type='text', name='book[finishDate]', value=book.finishDate.toYMD('/'))
+      else
+        input(type='text', name='book[finishDate]')
+    div コメント:
+      textarea(name='book[comment]', rows=3, cols=50)= book.comment
+    div: input(type='submit', value='登録')

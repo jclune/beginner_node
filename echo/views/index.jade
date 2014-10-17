@@ -1,0 +1,30 @@
+extends layout
+
+block script
+  script(src = '/socket.io/socket.io.js')
+  script.
+    $(function() {
+      var socket = io.connect();
+      socket.on('reply message', function(data){
+        $li = $('<li>');
+        $li.append($('<span>' + $('#name').val() + ': </span><span> ' + data + '</span>'));
+        $('#list').append($li);
+      });
+      $('#message').on('keydown', function(ev){
+        var self = $(this);
+        if ((ev.which === 13 || ev.keyCode === 13) && self.val() != ''){
+          socket.emit('send message', self.val());
+          self.val('');
+        }
+      });
+    });
+
+block content
+  h1= title
+  div
+    span name
+    input#name
+  div
+    span message
+    input#message
+    ul#list

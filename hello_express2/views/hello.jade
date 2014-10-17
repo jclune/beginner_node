@@ -1,0 +1,26 @@
+doctype html
+html
+	head
+		meta(charset='utf-8')
+		title Hello!
+		link(rel="stylesheet", href="/stylesheets/style.css")
+	body
+		p#id こんにちは
+		p.class Hi
+		div
+			div
+				div: p.class1.class2 shortcut
+				input(type='text' name='name')
+				option(value='Node')
+				//
+					p commented out
+				p not commented out
+				- var foo = "hello world"
+				h1= foo
+				p #{foo}
+				p!= foo
+				input(value=foo)
+				if true
+					p true
+				else
+					p false

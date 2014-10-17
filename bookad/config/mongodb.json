@@ -1,0 +1,20 @@
+{
+  "development": {
+    "server": {
+      "host": "localhost"
+     ,"port": 27017
+     ,"option": {
+        "auto_reconnect": true
+       ,"poolSize": 20
+      }
+    }
+   ,"database": "bookad"
+   ,"option": {
+      "journal": "true"
+    }
+  }
+
+ ,"production": {
+
+  }
+}

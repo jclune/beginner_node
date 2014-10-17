@@ -1,0 +1,14 @@
+{
+  "name": "hello_express",
+  "version": "0.0.0",
+  "description": "express",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -R spec"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.4.5"
+  }
+}

@@ -1,0 +1,15 @@
+extends layout
+
+block script
+  script(src='/socket.io/socket.io.js')
+  script.
+    $(function() {
+      var socket = io.connect();
+      socket.on('countup', function(count) {
+        $('#count').text(count);
+      });
+    })
+
+block content
+  p 現在のアクセス数：
+    span#count= count

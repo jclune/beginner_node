@@ -1,0 +1,242 @@
+@charset "UTF-8"
+
+mp-zero()
+  margin: 0
+  padding: 0
+
+$page-width = 800px
+
+/* ========BASIC======== */
+html
+  overflow-y: scroll
+
+body
+  mp-zero()
+  line-height: 1.6
+  letter-spacing: 1px
+  font-family: Verdana, Helvetica, sans-serif
+  font-size: 13px
+  color: #333
+  background: #EFEFEF
+
+h1,h2,h3,h4,h5,h6
+  mp-zero()
+  font-weight: normal
+
+p
+  margin: 0 0 1em 0
+  padding: 0
+
+br
+  letter-spacing: normal
+
+img
+  border: 0
+
+a
+  color: #5A5D00
+  text-decoration: none
+  &:hover
+    color: #7B8200
+    border-bottom: 1px solid @color
+
+dl,ol,ul
+  @extends p
+
+li
+  margin: 0 0 0 40px
+  padding: 0
+
+em
+  font-style: normal
+  background: #ff0
+
+
+/* ========TEMPLATE WIREFRAME======== */
+#top
+  width: $page-width
+  margin: 20px auto
+  padding: 10px
+  background: #fff
+
+#header
+  width: $page-width
+  position: relative
+  background: #313431
+  h1 a
+    color: #fff
+    &:hover
+      color: #ddd
+      border-bottom: none
+
+#navi
+  position: absolute
+  top: 20px
+  right: 0
+
+#icatch
+  margin: 5px 0
+
+#menu
+  float: left
+  width: $page-width
+  margin: 0 0 20px 0
+  background: #7B8200
+  &:hover
+    background: #A4AC1E
+
+#contents
+  width: $page-width
+  clear: both
+  float: left
+
+#main
+  float: left
+  width: 500px
+
+#sub
+  float: right
+  width: 280px
+  padding: 5px
+  background: #EBE9EB
+
+#totop
+  clear: both
+
+#footer
+  width: $page-width
+  clear: both
+  padding: 10px 0
+
+
+/* ========HEADER CUSTOMIZE======== */
+#header
+  h1
+    padding: 20px 10px 0 20px
+    font-weight: bold
+    font-size: 24px
+    color: #fff
+  p
+    margin: 0
+    padding: 0 10px 10px 20px
+    color: #AAAAAA
+
+
+/* ========MENU CUSTOMIZE======== */
+#menu
+  .current
+    background-color: #5A5D00
+    color: #fff
+  ul
+    list-style: none
+    mp-zero();
+  li
+    float: left
+    mp-zero()
+    a
+      display: block
+      padding: 8px 20px
+      color: #fff
+      &:hover
+        @extends #menu .current
+        border: none
+
+
+/* ========MAIN CUSTOMIZE======== */
+#main
+  h-style($m, $difsize)
+    if $m
+      margin-bottom: $m px
+    font-weight: bold
+    font-size: 16px + $difsize
+  h2
+    h-style(10, 0)
+    padding: 10px 0
+    border-bottom: 2px solid #ddd
+  h3
+    h-style(2, -1)
+    padding: 2px 0 2px 10px
+    line-height: 1.2
+    border-left: 5px solid #333
+  h4
+    h-style(2, -2)
+    border-bottom: 2px solid #666
+  h5
+    h-style(2, -3)
+    padding: 2px 5px
+    background: #ececec
+  h6
+    h-style(null, -3)
+  dl
+    mp-zero()
+  dt
+    text-decoration: underline
+  dd
+    margin: 0 0 1em 1em
+  table
+    width: 100%
+    border-collapse: collapse
+    td
+      padding: 5px
+      font-size: 14px
+      text-align: left
+      border: 1px solid #ddd
+    th
+      @extends #main table td
+      color: #fff
+      background: #3C3C3C
+
+
+/* ========SUB CUSTOMIZE======== */
+#sub
+  h2
+    padding: 2px 5px
+    font-size: 14px
+    color: #fff
+    background: #3C3C3C
+  ul
+    margin: 5px 0 0 0
+    padding: 0
+    list-style: none
+  li
+    margin: 0 0 0 5px
+    padding-left: 10px
+    border-bottom: 1px solid #fff
+    line-height: 2
+    background: url(../images/bg_list.gif) 0 50% no-repeat
+
+
+/* ========PAGETOP CUSTOMIZE========= */
+#pageTop
+  padding: 10px 0
+  text-align: right
+  a
+    padding: 0 0 0 12px
+    background: url(../images/bg_pagetop.gif) 0 60% no-repeat
+
+#footMenu
+  fm-style($f = null, $l = null)
+    position: relative
+    if $f
+      float: $f
+    if $l
+      left: $l
+  fm-style()
+  overflow: hidden
+  padding: 20px 0 0 0
+  border-top: 1px solid #CECFCE
+  ul
+    fm-style(left, 50%)
+    list-style: none
+    mp-zero()
+  li
+    fm-style(left, -50%)
+    margin: 0 30px 0 0
+    padding: 0
+
+
+/* ========FOOTER CUSTOMIZE======== */
+.copyright
+  text-align: center
+  font-size: 11px
+  padding: 20px 0

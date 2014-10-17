@@ -1,0 +1,21 @@
+extends ../layout
+
+block content
+  form(action='..', method='get')
+    div ISBN:
+      input(type='text', name='book[isbn]')
+      | (部分一致検索をします)
+    div 書籍名:
+      input(type='text', name='book[name]')
+      | (部分一致検索をします)
+    div 著者:
+      input(type='text', name='book[author]')
+      | (スペース区切りでAND検索になります)
+    div タグ:
+      input(type='text', name='book[tag]')
+      | (スペース区切りでAND検索になります)
+    div 購入日:
+      input(type='text', name='book[purchaseDate][start]')
+      | ～
+      input(type='text', name='book[purchaseDate][end]')
+    div: input(type='submit', value='検索')

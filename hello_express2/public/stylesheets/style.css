@@ -1,0 +1,25 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+p #id {
+  color: #f00;
+}
+p .class {
+  color: #008000;
+}
+div {
+  background-color: #00f;
+}
+div {
+  background-color: #f00;
+}
+div div {
+  background-color: #008000;
+}
+div p {
+  color: #00f;
+}
+div h1 {
+  color: #ff0;
+}

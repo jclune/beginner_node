@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1= title
+  form(type='post')
+    div.error
+      if error1
+        p: span.red= error1
+      if error2
+        p: span.red= error2
+    p
+      input(type='radio' name='userType' value='admin' checked)
+      span User
+      span &nbsp;&nbsp;&nbsp;&nbsp;
+      input(type='radio' name='userType' value='guest')
+      span Guest
+    p
+      input(type='text' name='user' value= placeHolder autofocus placeholder='username')
+      input(type='password' name='password' placeholder='password')
+    p    
+      input(type='submit' value='login')

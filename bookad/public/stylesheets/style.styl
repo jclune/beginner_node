@@ -1,0 +1,35 @@
+@charset "UTF-8"
+
+#contents
+  width: 960px
+
+#book_top
+  float: right
+  margin: 0 10px 5px 0
+
+#book_list
+  width: 100%
+  clear: both
+
+.horizontal_menu a
+  margin: 0 5px
+
+ul.tag
+  list-style-type: none
+  padding-left: 0
+  margin-left: 0
+  display: inline
+
+
+#detail
+  div
+    p
+      margin-top: 0
+      margin-bottom: 10px
+      margin-left: 30px
+    ul
+      @extends #detail div p
+      list-style-type: none
+      padding-left: 0
+    pre
+      @extends #detail div p
